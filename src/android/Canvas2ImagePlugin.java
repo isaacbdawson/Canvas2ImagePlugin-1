@@ -84,6 +84,7 @@ public class Canvas2ImagePlugin extends CordovaPlugin {
     private void savePhoto() {
 
         Uri imageUri = null;
+        String imageName = "c2i_" + System.currentTimeMillis() + (this.format.equals("png") ? ".png" : ".jpg");
         // Bitmap bmp = this.bmp;
         CallbackContext callbackContext = this.callbackContext;
 
@@ -115,7 +116,8 @@ public class Canvas2ImagePlugin extends CordovaPlugin {
         } else {
             // Update image gallery
             scanPhoto(imageUri);
-            callbackContext.success(imageUri.getPath());
+            //callbackContext.success(imageUri.getPath());
+            callbackContext.success(imageUri.getPath() + "/" + imageName);
         }
 
     }
