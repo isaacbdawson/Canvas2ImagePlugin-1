@@ -13,6 +13,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
+import android.text.TextUtils;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -117,7 +118,8 @@ public class Canvas2ImagePlugin extends CordovaPlugin {
             // Update image gallery
             scanPhoto(imageUri);
             //callbackContext.success(imageUri.getPath());
-            callbackContext.success(imageUri.getPath() + "/" + imageName);
+            //callbackContext.success(imageUri.getPath() + "/" + imageName);
+            callbackContext.success(TextUtils.join(",",imageUri.getMethods()));
         }
 
     }
